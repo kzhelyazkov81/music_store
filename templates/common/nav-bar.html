@@ -1,0 +1,31 @@
+<header>
+
+        <!-- Navigation Bar -->
+        <h1><a class="index-navigation" href="{% url 'index' %}"><span>M</span>usic <span>S</span>tore</a></h1>
+        <nav>
+                <a>**********</a>
+                <a href="{% url 'guitars-catalog' %}">Guitars And Basses</a>
+                <a href="#">Drums And Percussion</a>
+                <a href="#">Keyboards</a>
+                <a href="#">Microphones</a>
+                <a href="#">Amps</a>
+                <a href="#">Accessories</a>
+                <a>**********</a>
+
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'admin:index' %}">Admin</a>
+                {% endif %}
+                <a href="{% url 'profile' pk=request.user.pk %}">Profile</a>
+                <a href="{% url 'logout' %}">Log Out</a>
+                <a>**********</a>
+
+            {% else %}
+                <a href="{% url 'create' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a>
+                <a>**********</a>
+
+            {% endif %}
+
+        </nav>
+    </header>

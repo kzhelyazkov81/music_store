@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+
+    <section id="car-details">
+        <h1>Profile Details</h1>
+        <div class="info-section">
+            <div class="car-header">
+                <h1>{{ object.get_full_name }}</h1>
+                <p class="description">Username: {{ object.username }}</p>
+                <p class="description">Email: {{ object.email }}</p>
+                <p class="description">Address: {{ object.address }}</p>
+                <p class="description">Phone number: {{ object.phone_number }}</p>
+
+                <div class="buttons">
+                    <a href="{% url 'edit profile' pk=object.pk %}" class="edit-button">Edit</a>
+                    <a href="{% url 'delete profile' pk=object.pk %}" class="delete-button">Delete</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

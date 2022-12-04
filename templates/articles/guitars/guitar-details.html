@@ -1,0 +1,25 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% include 'articles/guitars/nav-bar.html' %}
+    <section id="car-details">
+        <h1>Guitar Details</h1>
+        <div class="info-section">
+            <div class="car-header">
+                <img class="car-img"
+                     src="/media/{{ object.image }}"
+                     alt='{{ object.model }}'/>
+                <h3><span class="description">Model: {{ object.model }}</span></h3>
+                <h3><span class="description">Type: {{ object.type }}</span></h3>
+                <h3><span class="description">Fretboard material: {{ object.fretboard }}</span></h3>
+                <h3><span class="description">Body material: {{ object.body }}</span></h3>
+                <h3><span class="description">Number of strings: {{ object.strings }}</span></h3>
+                <h3><span class="description">Price: {{ object.price|floatformat:2 }} €</span></h3>
+            </div>
+            <div class="buttons">
+                <a href="{% url 'guitar-edit' object.id %}" class="edit-button">Edit</a>
+                <a href="{% url 'guitar-delete' object.id %}" class="delete-button">Delete</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
