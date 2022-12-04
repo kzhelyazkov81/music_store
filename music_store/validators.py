@@ -23,3 +23,8 @@ def validate_file_size(image_object):
 def validate_strings_number(value):
     if not 4 <= value <= 12:
         raise exceptions.ValidationError('The strings number must be between 4 and 12!')
+
+
+def validate_keys_number(value):
+    if not 61 <= value <= 88:
+        raise exceptions.ValidationError('The keys number must be between 61 and 88!')

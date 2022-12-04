@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'music_store.common',
     'music_store.guitars',
     'music_store.drums',
+    'music_store.keyboards',
 ]
 
 MIDDLEWARE = [

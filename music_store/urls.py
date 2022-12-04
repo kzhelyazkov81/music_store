@@ -9,5 +9,6 @@ urlpatterns = [
     path('', include('music_store.common.urls')),
     path('guitars/', include('music_store.guitars.urls')),
     path('drums/', include('music_store.drums.urls')),
+    path('keyboards/', include('music_store.keyboards.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
