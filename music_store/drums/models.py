@@ -1,23 +1,10 @@
-
 from django.db import models
 
-from music_store.validators import validate_file_size, validate_strings_number
+from music_store.validators import validate_file_size
 
 
-class Guitar(models.Model):
+class DrumSet(models.Model):
     MAX_CHAR_LENGTH = 50
-    ACOUSTIC = 'Acoustic'
-    ELECTRIC = 'Electric'
-    BASS = 'Bass'
-    TYPES = (
-        (ACOUSTIC, ACOUSTIC),
-        (ELECTRIC, ELECTRIC),
-        (BASS, BASS),
-    )
-    type = models.CharField(
-        max_length=MAX_CHAR_LENGTH,
-        choices=TYPES,
-    )
 
     model = models.CharField(
         max_length=MAX_CHAR_LENGTH,
@@ -25,20 +12,38 @@ class Guitar(models.Model):
         null=False,
     )
 
-    fretboard = models.CharField(
+    bass = models.CharField(
         max_length=MAX_CHAR_LENGTH,
         blank=False,
         null=False,
     )
 
-    body = models.CharField(
+    floor = models.CharField(
         max_length=MAX_CHAR_LENGTH,
         blank=False,
         null=False,
     )
 
-    strings = models.PositiveIntegerField(
-        validators=(validate_strings_number,),
+    first_tom = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
+        blank=True,
+        null=True,
+    )
+
+    second_tom = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
+        blank=True,
+        null=True,
+    )
+
+    third_tom = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
+        blank=True,
+        null=True,
+    )
+
+    body_material = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
         blank=False,
         null=False,
     )
@@ -54,6 +59,3 @@ class Guitar(models.Model):
         blank=False,
         null=False,
     )
-
-    def __str__(self):
-        return self.model

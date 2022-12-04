@@ -115,6 +115,7 @@
     background: red;
 }
 
+
 .edit-button:hover, .delete-button:hover {
     box-shadow: 0 0 100px white;
 }
