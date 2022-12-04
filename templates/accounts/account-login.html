@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 {% block content %}
+    {% include 'common/nav-bar.html' %}
     <section id="register-page" class="content auth">
         <form id="register" action="{% url 'login' %}" method="post">
                 <div class="container">
