@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% include 'articles/accessories/nav-bar.html' %}
+    <section id="delete-page" class="auth">
+        <form id="delete" method="post" action="{% url 'accessory-delete' object.id %}">
+            <div class="container">
+                <h1>Delete Accessory</h1>
+                {{ form }}
+                {% csrf_token %}
+                <input class="btn submit" type="submit" value="Delete Accessory">
+        </div>
+        </form>
+    </section>
+{% endblock %}

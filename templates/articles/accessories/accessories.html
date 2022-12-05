@@ -1,0 +1,24 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% include 'articles/accessories/nav-bar.html' %}
+        {% if articles.count == 0 %}
+        <p class="no-articles">No articles yet</p>
+        {% else %}
+        <section id="catalogue">
+            <h1>Total articles: {{ articles.count }}</h1>
+            {% for article in articles %}
+                <div class="car-card">
+                    <div class="image-wrap">
+                        <img src="/media/{{ article.image }}" alt="{{ article.type }}">
+                    </div>
+                    <h1>{{ article.type }}</h1>
+                    <h1>{{ article.model }}</h1>
+                    <h1>Price: {{ article.price|floatformat:2 }} €</h1>
+                    <div class="details-buttons">
+                        <a href="{% url 'accessory-details' pk=article.id %}" class="details-btn">Details</a>
+                    </div>
+                </div>
+             {% endfor %}
+            {% endif %}
+        </section>
+{% endblock %}

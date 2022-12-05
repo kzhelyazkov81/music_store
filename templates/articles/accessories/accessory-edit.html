@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% include 'articles/accessories/nav-bar.html' %}
+    <section id="create-page" class="auth">
+        <form id="create" action="{% url 'accessory-edit' object.id %}" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <h1>Edit Accessory</h1>
+            {{ form }}
+            {% csrf_token %}
+                <input class="btn submit" type="submit" value="Edit Accessory">
+        </div>
+        </form>
+    </section>
+{% endblock %}

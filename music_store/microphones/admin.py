@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from music_store.microphones.models import Microphone
+
+
+@admin.register(Microphone)
+class MicrophoneAdmin(admin.ModelAdmin):
+    pass

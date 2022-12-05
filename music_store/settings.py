@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'music_store.drums',
     'music_store.keyboards',
     'music_store.microphones',
+    'music_store.accessories',
 ]
 
 MIDDLEWARE = [
