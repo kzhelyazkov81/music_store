@@ -1,10 +1,11 @@
 from django.urls import reverse_lazy
 from django.views import generic as views
-from django.contrib.auth import mixins as auth_mixins
-
-
+from django.contrib.auth import mixins as auth_mixins, get_user_model
 from music_store.accessories.forms import AccessoryCreateForm, AccessoryEditForm
 from music_store.accessories.models import Accessory
+
+
+UserModel = get_user_model()
 
 
 class AccessoriesCatalogView(views.ListView):
@@ -44,3 +45,5 @@ class AccessoryDeleteView(auth_mixins.PermissionRequiredMixin, views.DeleteView)
     template_name = 'articles/accessories/accessory-delete.html'
     model = Accessory
     success_url = reverse_lazy('accessories-catalog')
+
+

@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load filters %}
 {% block content %}
     {% include 'articles/microphones/nav-bar.html' %}
     <section id="car-details">
@@ -14,7 +15,7 @@
                 <h3><span class="description">Price: {{ object.price|floatformat:2 }} €</span></h3>
             </div>
             <div class="buttons">
-                <a href="#" class="delete-button">Buy</a>
+                <a href="{% url 'order' article_name=object|to_class_name pk=object.id user_id=request.user.id  %}" class="delete-button">Buy</a>
                 <a href="{% url 'microphone-edit' object.id %}" class="edit-button">Edit</a>
                 <a href="{% url 'microphone-delete' object.id %}" class="delete-button">Delete</a>
             </div>

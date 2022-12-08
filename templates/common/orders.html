@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'common/nav-bar.html' %}
+    <table>
+        <tr>
+            <th>Article</th>
+            <th>Model</th>
+            <th>Quantity</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone number</th>
+        </tr>
+        {% for a in articles %}
+            <tr>
+                <th> {{ a.article }}</th>
+                <th> {{ a.model }}</th>
+                <th> {{ a.quantity }}</th>
+                <th> {{ a.first_name }}</th>
+                <th> {{ a.last_name }}</th>
+                <th> {{ a.address }}</th>
+                <th> {{ a.email }}</th>
+                <th> {{ a.phone_number }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

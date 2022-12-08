@@ -1,0 +1,15 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% include 'common/nav-bar.html' %}
+    <section id="create-page" class="auth">
+        <form id="create" method="post" action="{% url 'guitar-order' pk request.user.id %}" >
+             <div class="container">
+                <h1 class="form-create-headline">Create Order</h1>
+                {{ form }}
+                {% csrf_token %}
+                <input class="btn" type="submit" value="Create Order">
+        </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

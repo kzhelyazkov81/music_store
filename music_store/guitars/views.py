@@ -1,10 +1,11 @@
+
 from django.urls import reverse_lazy
 from django.views import generic as views
-from django.contrib.auth import mixins as auth_mixins
-
-
+from django.contrib.auth import mixins as auth_mixins, get_user_model
 from music_store.guitars.forms import GuitarCreateForm, GuitarEditForm
 from music_store.guitars.models import Guitar
+
+UserModel = get_user_model()
 
 
 class GuitarsCatalogView(views.ListView):
