@@ -21,10 +21,9 @@ class IndexView(views.TemplateView):
     template_name = 'index.html'
 
 
-def add_order(request, article_name, pk, user_id):
-
+def add_order(request, article_name, pk):
     instance = str_to_class(article_name).objects.get(pk=pk)
-    customer = UserModel.objects.get(pk=user_id)
+    customer = request.user
 
     if request.method == 'GET':
         form = OrderCreateForm()
