@@ -1,4 +1,4 @@
-from django.contrib.auth import views as auth_views, get_user_model, login
+from django.contrib.auth import views as auth_views, get_user_model, login, mixins as auth_mixins
 from django.urls import reverse_lazy
 from django.views import generic as views
 from music_store.accounts.forms import UserCreationForm
@@ -26,7 +26,7 @@ class SignOutView(auth_views.LogoutView):
     next_page = reverse_lazy('index')
 
 
-class UserEditView(views.UpdateView):
+class UserEditView(auth_mixins.LoginRequiredMixin, views.UpdateView):
     template_name = 'accounts/account-edit.html'
     model = UserModel
     fields = ('first_name', 'last_name', 'email', 'address', 'phone_number')
@@ -37,12 +37,12 @@ class UserEditView(views.UpdateView):
         })
 
 
-class UserDetailsView(views.DetailView):
+class UserDetailsView(auth_mixins.LoginRequiredMixin, views.DetailView):
     template_name = 'accounts/account-profile.html'
     model = UserModel
 
 
-class UserDeleteView(views.DeleteView):
+class UserDeleteView(auth_mixins.LoginRequiredMixin, views.DeleteView):
     template_name = 'accounts/account-delete.html'
     model = UserModel
     success_url = reverse_lazy('index')
