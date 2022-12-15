@@ -22,3 +22,4 @@ class SignUpViewTest(TestCase):
         )
 
         self.assertEqual(credentials['username'], response.context['user'].username)
+        self.assertEqual(200, response.status_code)
