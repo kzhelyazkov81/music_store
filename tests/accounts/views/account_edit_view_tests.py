@@ -37,6 +37,7 @@ class AccountEditViewTest(TestCase):
 
         credentials = {
             'username': 'username',
+            'email': 'some@mail.com',
             'password': '!zaq2wsx',
         }
 
