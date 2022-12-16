@@ -6,7 +6,7 @@ from django.contrib.auth import mixins as auth_mixins
 from music_store.common.forms import OrderCreateForm
 from music_store.drums.forms import DrumSetCreateForm, DrumSetEditForm
 from music_store.drums.models import DrumSet
-
+from django.contrib.auth.decorators import login_required
 
 class DrumSetsCatalogView(views.ListView):
     context_object_name = 'articles'
@@ -47,6 +47,7 @@ class DrumSetDeleteView(auth_mixins.PermissionRequiredMixin, views.DeleteView):
     success_url = reverse_lazy('guitars-catalog')
 
 
+@login_required
 def add_order(request, pk):
     instance = DrumSet.objects.get(pk=pk)
 

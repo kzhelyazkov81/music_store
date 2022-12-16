@@ -6,8 +6,8 @@ from music_store.microphones.views import MicrophonesCatalogView, MicrophoneCrea
 urlpatterns = [
     path('catalog/', MicrophonesCatalogView.as_view(), name='microphones-catalog'),
     path('create/', MicrophoneCreateView.as_view(), name='microphone-create'),
-    path('edit/<int:pk>', MicrophoneEditView.as_view(), name='microphone-edit'),
-    path('details/<int:pk>', MicrophoneDetailsView.as_view(), name='microphone-details'),
-    path('delete/<int:pk>', MicrophoneDeleteView.as_view(), name='microphone-delete'),
-    path('order/<int:pk>', add_order, name='microphone-order'),
+    path('edit/<int:pk>/', MicrophoneEditView.as_view(), name='microphone-edit'),
+    path('details/<int:pk>/', MicrophoneDetailsView.as_view(), name='microphone-details'),
+    path('delete/<int:pk>/', MicrophoneDeleteView.as_view(), name='microphone-delete'),
+    path('order/<int:pk>/', add_order, name='microphone-order'),
 ]

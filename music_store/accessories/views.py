@@ -5,6 +5,7 @@ from django.contrib.auth import mixins as auth_mixins, get_user_model
 from music_store.accessories.forms import AccessoryCreateForm, AccessoryEditForm
 from music_store.accessories.models import Accessory
 from music_store.common.forms import OrderCreateForm
+from django.contrib.auth.decorators import login_required
 
 UserModel = get_user_model()
 
@@ -48,6 +49,7 @@ class AccessoryDeleteView(auth_mixins.PermissionRequiredMixin, views.DeleteView)
     success_url = reverse_lazy('accessories-catalog')
 
 
+@login_required
 def add_order(request, pk):
     instance = Accessory.objects.get(pk=pk)
 

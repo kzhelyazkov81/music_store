@@ -6,6 +6,7 @@ from django.contrib.auth import mixins as auth_mixins
 from music_store.common.forms import OrderCreateForm
 from music_store.keyboards.forms import KeyboardCreateForm, KeyboardEditForm
 from music_store.keyboards.models import Keyboard
+from django.contrib.auth.decorators import login_required
 
 
 class KeyboardsCatalogView(views.ListView):
@@ -47,6 +48,7 @@ class KeyboardDeleteView(auth_mixins.PermissionRequiredMixin, views.DeleteView):
     success_url = reverse_lazy('keyboards-catalog')
 
 
+@login_required
 def add_order(request, pk):
     instance = Keyboard.objects.get(pk=pk)
 

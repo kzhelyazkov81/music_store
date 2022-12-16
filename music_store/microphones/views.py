@@ -6,6 +6,7 @@ from django.contrib.auth import mixins as auth_mixins
 from music_store.common.forms import OrderCreateForm
 from music_store.microphones.forms import MicrophoneCreateForm, MicrophoneEditForm
 from music_store.microphones.models import Microphone
+from django.contrib.auth.decorators import login_required
 
 
 class MicrophonesCatalogView(views.ListView):
@@ -47,6 +48,7 @@ class MicrophoneDeleteView(auth_mixins.PermissionRequiredMixin, views.DeleteView
     success_url = reverse_lazy('microphones-catalog')
 
 
+@login_required
 def add_order(request, pk):
     instance = Microphone.objects.get(pk=pk)
 
